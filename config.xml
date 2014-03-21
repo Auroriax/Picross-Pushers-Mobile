@@ -5,13 +5,17 @@
 	<description>A game that combines the ever-populair Sokoban with the number-logic gameplay of Picross (a.k.a. Nonogram).</description>
 	<author href="http://www.amcookie.weebly.com">Tom H. (Amazingcookie)</author>
 	<content src="index.html" />
+	<gap:platform name="android"/>
+	<preference name="orientation" value="landscape" /> 
 	<preference name="fullscreen" value="true" />
+	<preference name="splash-screen-duration" value="3000"/>
 	<preference name="disallowoverscroll" value="true" />
 	<preference name="webviewbounce" value="false" /> 
-	<icon src="icons/ios/icon.png" gap:platform="ios" width="57" height="57" />
+	<icon src="ppicon-87.png" width="87" height="87" />
+	<!--<icon src="icons/ios/icon.png" gap:platform="ios" width="57" height="57" />
 	<icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
 	<icon src="icons/ios/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
-	<icon src="icons/ios/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" />
+	<icon src="icons/ios/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" /> -->
 	<gap:splash src="splash/ios/default.png" gap:platform="ios" width="320" height="480" />
 	<gap:splash src="splash/ios/default_at_2x.png" gap:platform="ios" width="640" height="960" />
 	<gap:splash src="splash/ios/default_iphone5.png" gap:platform="ios" width="640" height="1136" />

@@ -35,9 +35,11 @@ body{
 .undo{
 	background-image: url('undo.png');
 	left:5px;
+	top:5px;
 }
 
 .restart{
 	background-image: url('restart.png');
-	right:5px;
+	left:52px;
+	top:5px;
 }
