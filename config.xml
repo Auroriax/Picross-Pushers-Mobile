@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:android   = "http://schemas.android.com/apk/res/android" id="com.amazingcookie.picrosspushers" version="0.3.1">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:android   = "http://schemas.android.com/apk/res/android" id="com.amazingcookie.picrosspushers" version="0.0.1">
 	<name>Picross Pushers</name>
 	<description>A game that combines the ever-populair Sokoban with the number-logic gameplay of Picross (a.k.a. Nonogram).</description>
 	<author href="http://www.amcookie.weebly.com">Tom H. (Amazingcookie)</author>
@@ -16,11 +16,12 @@
 	<icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
 	<icon src="icons/ios/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
 	<icon src="icons/ios/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" /> -->
-	<gap:splash src="splash/ios/default.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="splash.png" />
+	<!--<gap:splash src="splash/ios/default.png" gap:platform="ios" width="320" height="480" />
 	<gap:splash src="splash/ios/default_at_2x.png" gap:platform="ios" width="640" height="960" />
 	<gap:splash src="splash/ios/default_iphone5.png" gap:platform="ios" width="640" height="1136" />
 	<gap:splash src="splash/ios/default_landscape.png" gap:platform="ios" width="1024" height="748" />
 	<gap:splash src="splash/ios/default_portrait.png" gap:platform="ios" width="768" height="1004" />
 	<gap:splash src="splash/ios/default_landscape_at_2x.png" gap:platform="ios" width="2048" height="1496" />
-	<gap:splash src="splash/ios/default_portrait_at_2x.png" gap:platform="ios" width="1536" height="2008" />
+	<gap:splash src="splash/ios/default_portrait_at_2x.png" gap:platform="ios" width="1536" height="2008" /> -->
 </widget>             
