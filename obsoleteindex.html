@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ 
+<head> 
+	<title>Picross Pushers by Amazingcookie</title>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<script src = "jquery.js"></script>
+	<script src = "touchswipe.js"></script>
+	<script>
+		$(document).ready(function(){
+               $(".control").on("touchend click",function(){
+                    var k = $(this).attr("id").split("_");
+                    var keyPressed = parseInt(k[1]);
+                    checkKey({
+                         keyCode:keyPressed
+                    },true);
+               })
+               $(document).swipe({
+				swipe:function(event,direction,distance,duration,fingerCount) {
+          			switch(direction){
+						case "left":
+							checkKey({keyCode:37},true);
+							break;
+						case "right":
+							checkKey({keyCode:39},true);
+							break;
+						case "up":
+							checkKey({keyCode:38},true);
+							break;
+						case "down":
+							checkKey({keyCode:40},true);
+							break;
+					}  
+        			},
+        			tap:function(event, target){
+					checkKey({keyCode:88},true);	
+				},   
+				threshold:0
+      		});
+		});
+	</script>
+</head> 
+
+<body> 
+	<div class="gameContainer"> 
+		<canvas id="gameCanvas" onmousemove="mouseMove(event)" onmouseout="mouseOut()" onkeydown="keyDown()"></canvas> 
+	</div>
+	<div class = "control undo" id = "ctrl_90"></div>
+	<div class = "control restart" id = "ctrl_82"></div>
+	<script src = "init.js"></script>
+	<script src = "tags.js"></script>
+	<script src = "fonts.js"></script>
+	<script src = "rc4.js"></script>
+	<script src = "fastbase.js"></script>
+	<script src = "params.js"></script>
+	<script src = "palettes.js"></script>
+	<script src = "setpixel.js"></script>
+	<script src = "recalc.js"></script>
+	<script src = "unload.js"></script>
+	<script src = "mouse.js"></script>
+	<script src = "data.js"></script>
+</body>
+ 
+</html>
