@@ -7,7 +7,7 @@
 	<content src="index.html" />
 	<gap:platform name="android"/>
 	<preference name="permissions" value="none"/>
-	<preference name="phonegap-version" value="3.3.0" />
+	<preference name="phonegap-version" value="3.5.0" />
 	<preference name="orientation" value="landscape" /> 
 	<preference name="fullscreen" value="true" />
 	<preference name="splash-screen-duration" value="3000"/>
