@@ -10,7 +10,7 @@
 	<preference name="phonegap-version" value="3.5.0" />
 	<preference name="orientation" value="landscape" /> 
 	<preference name="fullscreen" value="true" />
-	<preference name="splash-screen-duration" value="3000"/>
+	<preference name="splash-screen-duration" value="2000"/>
 	<preference name="disallowoverscroll" value="true" />
 	<preference name="webviewbounce" value="false" /> 
 	<icon src="ppicon-375.png" width="375" height="375" />
