@@ -16,7 +16,7 @@ body{
 .gameContainer{
 	background-color:none;
 	position:absolute;
-	left:55px;
+	left:49px;
 	right:0px;
 	top:0px;
 	bottom:0px;
@@ -34,17 +34,17 @@ body{
 }
 .undo{
 	background-image: url('undo.png');
-	left:5px;
-	bottom:5px;
+	left:3px;
+	bottom:3px;
 }
 
 .restart{
 	background-image: url('restart.png');
-	left:5px;
-	bottom:52px;
+	left:3px;
+	bottom:50px;
 }
 
 .cookie{
 	background-image: url('cookielogo.png');
-	left:5px;
-	top:5px;
+	left:3px;
+	top:3px;
