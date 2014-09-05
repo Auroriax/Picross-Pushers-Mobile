@@ -57,8 +57,10 @@ body{
 }
 
 .lvlnr{
+	position:absolute;
 	font-size:32px;
+	color:white;
 	text-align: center;
-	left:3px;
-	top:97px;
+	left:7px;
+	top:46%;
 }
