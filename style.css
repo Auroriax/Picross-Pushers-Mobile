@@ -47,13 +47,19 @@ body{
 .cookie{
 	background-image: url('cookielogo.png');
 	left:3px;
-	top:30px;
+	top:77px;
 }
 	
 .gjlogin{
-	background-image: url('favicon-1.png');
+	background-image: url('gjlogo.png');
 	left:3px;
-	top:77px;
+	top:124px;
+}
+
+.help{
+	background-image: url('help.png');
+	left:3px;
+	top:30px;
 }
 
 .lvlnr{
@@ -62,11 +68,11 @@ body{
 	color:white;
 	text-align: center;
 	left:7px;
-	top:121px;
+	top:165px;
 }
 
 .clapper{
-	background-image: url('closedrawer.png');
+	background-image: url('drawer.png');
 	height:20px;
 	left:3px;
 	top:3px;
