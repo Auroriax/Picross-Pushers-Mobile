@@ -62,13 +62,19 @@ body{
 	top:30px;
 }
 
+.share{
+	background-image: url('share.png');
+	left:3px;
+	top:171px;
+}
+
 .lvlnr{
 	position:absolute;
 	font-size:32px;
 	color:white;
 	text-align: center;
 	left:7px;
-	top:165px;
+	top:218px;
 }
 
 .clapper{
