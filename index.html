@@ -6,6 +6,8 @@
 	<script src = "jquery.js"></script>
 	<script src = "touchswipe.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
+	<script src="offline.min.js" </script>
+	<script> Offline.options{checkOnLoad: false, interceptRequests: true, reconnect: false, requests: false, game: false}
 	<script>
 		$(".gameContainer").ready(function(){
                $(".control").on("touchstart",function(){ /* Click has been disabled */
@@ -42,14 +44,14 @@
 </head> <body> 
 	<script> var gjusername = ""
 	var gjpasskey = ""
-	var wumbo = "f339"+"6023"+'638a7'+"caf02ea"+"38e055380f6d"
+	var wumbo = "f339"+"6023"+'638a7'+"caf02ea"+/*a05*/"38e055380f6d"
 	var temp = ""
 	var gjloggedin = 0
 	var answer = ""
 	var clapper = 1
 	</script> 
 	<script> function Credits() 
-	{alert('PICROSS PUSHERS: A game made by Tom H. (Amazingcookie). http://amcookie.weebly.com \nMOBILE VERSION CREDITS: \nemanuele feronato for a tutorial of porting a Puzzlescript game to smartphones.  \nPhonegap Build for porting to smartphones. \nOPEN SOURCE LICENCES: \nTouchSwipe - jQuery Plugin: Copyright (c) 2010 Matt Bryson. Licenced under the MIT Licence (Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.).\nJavascript MD5: Copyright (c) 1998 - 2009, Paul Johnston & Contributors. All rights reserved. Obtained from http://pajhome.org.uk/crypt/md5/. Licenced under the BSD Licence (Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.)'); }</script>
+	{alert('PICROSS PUSHERS: A game made by Tom H. (Amazingcookie). http://amcookie.weebly.com \nMOBILE VERSION CREDITS: \nemanuele feronato for a tutorial of porting a Puzzlescript game to smartphones.  \nPhonegap Build for porting to smartphones. \nOPEN SOURCE LICENCES: \nTouchSwipe - jQuery Plugin: Copyright (c) 2010 Matt Bryson. Licenced under the MIT Licence (See below.).\nJavascript MD5: Copyright (c) 1998 - 2009, Paul Johnston & Contributors. All rights reserved. Obtained from http://pajhome.org.uk/crypt/md5/. Licenced under the BSD Licence (Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.)\nSocial Sharing Phonegap plugin by Eddy Verbruggen. Licenced under the MIT Licence (Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.)'); }</script>
 	<script> function GameJoltLogin() {
 	if (gjloggedin == 1)
 	{var r = confirm("Currently, you're logged in, "+gjusername+". Do you want to log out?")
@@ -57,10 +59,12 @@
 	document.getElementById("ctrl_01").style.backgroundPosition = "0px 0px"; return}
 	else
 	return}
+	if (Offline.state == "down") { if (confirm("No active internet connection available. Want to try and log in anyway?") == false) {return}}
 	gjusername = prompt("Here, you can log in with your account at gamejolt.com to earn trophies. First, enter your [Username].",gjusername)
 	if (!gjusername) {return}
 	gjpasskey = prompt("Secondly, enter your [Usertoken]. You can obtain your usertoken by visiting GameJolt and clicking 'Show' just above your experience bar.","")
 	if (!gjpasskey) {return}
+	if (Offline.state == "down") {alert("No internet connection available. Failed to log in."); return}
 	temp = hex_md5("http://gamejolt.com/api/game/v1/sessions/open/?game_id=22645&username="+gjusername+"&user_token="+gjpasskey+"&format=keypair"+wumbo); answer = httpGet("http://gamejolt.com/api/game/v1/sessions/open/?game_id=22645&username="+gjusername+"&user_token="+gjpasskey+"&format=keypair&signature="+temp)
 	if (answer == 'success:"true"\r\n')
 	{
@@ -94,6 +98,7 @@
 	document.getElementById("ctrl_02").style.visibility = "hidden";
 	document.getElementById("ctrl_03").style.visibility = "hidden";
 	document.getElementById("ctrl_05").style.visibility = "hidden";
+	document.getElementById("ctrl_06").style.visibility = "hidden";
 	document.getElementById("ctrl_04").style.backgroundPosition = "0 20px";	clapper = 0} 
 	else {
 	
@@ -101,6 +106,7 @@
 	document.getElementById("ctrl_02").style.visibility = "visible";
 	document.getElementById("ctrl_03").style.visibility = "visible";
 	document.getElementById("ctrl_05").style.visibility = "visible";
+	document.getElementById("ctrl_06").style.visibility = "visible";
 	document.getElementById("ctrl_04").style.backgroundPosition = "0 0px";	clapper = 1} 
 	}
 	</script>
