@@ -47,25 +47,25 @@ body{
 .cookie{
 	background-image: url('cookielogo.png');
 	left:3px;
-	top:77px;
+	top:30px;
 }
 	
 .gjlogin{
 	background-image: url('gjlogo.png');
 	left:3px;
-	top:124px;
+	top:171px;
 }
 
 .help{
 	background-image: url('help.png');
 	left:3px;
-	top:30px;
+	top:77px;
 }
 
 .share{
 	background-image: url('share.png');
 	left:3px;
-	top:171px;
+	top:124px;
 }
 
 .lvlnr{

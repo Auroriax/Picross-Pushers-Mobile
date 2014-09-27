@@ -6,8 +6,6 @@
 	<script src = "jquery.js"></script>
 	<script src = "touchswipe.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
-	<script src="offline.min.js" </script>
-	<script> Offline.options{checkOnLoad: false, interceptRequests: true, reconnect: false, requests: false, game: false}</script>
 	<script>
 		$(".gameContainer").ready(function(){
                $(".control").on("touchstart",function(){ /* Click has been disabled */
@@ -59,13 +57,10 @@
 	document.getElementById("ctrl_01").style.backgroundPosition = "0px 0px"; return}
 	else
 	return}
-	Offline.check();
-	if (Offline.state == "down") { if (confirm("No active internet connection available. Want to try and log in anyway?") == false) {return}}
 	gjusername = prompt("Here, you can log in with your account at gamejolt.com to earn trophies. First, enter your [Username].",gjusername)
 	if (!gjusername) {return}
 	gjpasskey = prompt("Secondly, enter your [Usertoken]. You can obtain your usertoken by visiting GameJolt and clicking 'Show' just above your experience bar.","")
 	if (!gjpasskey) {return}
-	if (Offline.state == "down") {alert("No internet connection available. Failed to log in."); return}
 	temp = hex_md5("http://gamejolt.com/api/game/v1/sessions/open/?game_id=22645&username="+gjusername+"&user_token="+gjpasskey+"&format=keypair"+wumbo); answer = httpGet("http://gamejolt.com/api/game/v1/sessions/open/?game_id=22645&username="+gjusername+"&user_token="+gjpasskey+"&format=keypair&signature="+temp)
 	if (answer == 'success:"true"\r\n')
 	{
