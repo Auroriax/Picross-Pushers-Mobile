@@ -7,7 +7,7 @@
 	<script src = "touchswipe.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
 	<script src="offline.min.js" </script>
-	<script> Offline.options{checkOnLoad: false, interceptRequests: true, reconnect: false, requests: false, game: false} </script>
+	<script> Offline.options{checkOnLoad: false, interceptRequests: true, reconnect: false, requests: false, game: false}</script>
 	<script>
 		$(".gameContainer").ready(function(){
                $(".control").on("touchstart",function(){ /* Click has been disabled */
@@ -59,6 +59,7 @@
 	document.getElementById("ctrl_01").style.backgroundPosition = "0px 0px"; return}
 	else
 	return}
+	Offline.check();
 	if (Offline.state == "down") { if (confirm("No active internet connection available. Want to try and log in anyway?") == false) {return}}
 	gjusername = prompt("Here, you can log in with your account at gamejolt.com to earn trophies. First, enter your [Username].",gjusername)
 	if (!gjusername) {return}
