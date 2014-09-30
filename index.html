@@ -39,6 +39,7 @@
       		});
 		});
 	</script><script>
+	function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false); }
 	function onDeviceReady() {
         // Register the event listener
@@ -49,7 +50,7 @@
     function onBackKeyDown() { checkKey({keyCode:90},true);
     }
 	</script>
-</head> <body> 
+</head> <body onload="onLoad()"> 
 	<script> var gjusername = ""
 	var gjpasskey = ""
 	var wumbo = "f339"+"6023"+'638a7'+"caf02ea"+/*a05*/"38e055380f6d"
