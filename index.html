@@ -51,13 +51,10 @@
     }
 	</script>
 </head> <body onload="onLoad()"> 
-	<script> var gjusername = ""
-	var gjpasskey = ""
+	<script> var gjusername = ""; var gjpasskey = "";
 	var wumbo = "f339"+"6023"+'638a7'+"caf02ea"+/*a05*/"38e055380f6d"
-	var temp = ""
-	var gjloggedin = 0
-	var answer = ""
-	var clapper = 1
+	var temp = ""; var gjloggedin = 0;
+	var answer = ""; var clapper = 1
 	</script> 
 </script>
 	<script> function Credits() 
@@ -507,8 +504,8 @@ function bit_rol(num, cnt)
 	<div class="gameContainer"> 
 		<canvas id="gameCanvas" onmousemove="mouseMove(event)" onmouseout="mouseOut()" onkeydown="keyDown()"></canvas> 
 	</div>
-	<div class = "control undo" id = "ctrl_90" onmouseover = "document.getElementById('ctrl_90').style.backgroundPosition = '0 40px';" onmouseout="document.getElementById('ctrl_90').style.backgroundPosition = '0 0px';"></div>
-	<div class = "control restart" id = "ctrl_82" onmouseover = "document.getElementById('ctrl_82').style.backgroundPosition = '0 40px';" onmouseout="document.getElementById('ctrl_82').style.backgroundPosition = '0 0px';"></div>
+	<div class = "control undo" id = "ctrl_90" onmouseover = "document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 100);"></div>
+	<div class = "control restart" id = "ctrl_82" onmouseover = "document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 100);"></div>
 	<div class = "control cookie" id = "ctrl_03" onclick="Credits()"> </div>
 	<div class = "control gjlogin" id = "ctrl_01" onclick="GameJoltLogin()"> </div>
 	<div class = "control clapper" id = "ctrl_04" onclick="Clapper()"> </div>
