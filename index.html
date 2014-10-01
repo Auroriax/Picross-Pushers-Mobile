@@ -8,12 +8,16 @@
 	<script type="text/javascript" src="cordova.js"></script>
 	<script>
 		$(".gameContainer").ready(function(){
-               $(".control").on("touchstart",function(){ /* Click has been disabled */
+               $(".control").on("touchstart click",function(){ /* Click has been disabled */
                     var k = $(this).attr("id").split("_");
                     var keyPressed = parseInt(k[1]);
                     checkKey({
                          keyCode:keyPressed
                     },true);
+					if (keyPressed == 82)
+					{document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 100)}
+					if (keyPressed == 90)
+					{document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 100)}
                })
                $(".gameContainer").swipe({
 				swipe:function(event,direction,distance,duration,fingerCount) {
@@ -47,7 +51,7 @@
 		document.addEventListener("menubutton", Clapper, false);
     }
     // Handle the back button
-    function onBackKeyDown() { checkKey({keyCode:90},true);
+    function onBackKeyDown() {if (confirm("Quit Picross Pushers?") == 1) {navigator.app.exitApp()};
     }
 	</script>
 </head> <body onload="onLoad()"> 
@@ -504,8 +508,8 @@ function bit_rol(num, cnt)
 	<div class="gameContainer"> 
 		<canvas id="gameCanvas" onmousemove="mouseMove(event)" onmouseout="mouseOut()" onkeydown="keyDown()"></canvas> 
 	</div>
-	<div class = "control undo" id = "ctrl_90" onmouseover = "document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 100);"></div>
-	<div class = "control restart" id = "ctrl_82" onmouseover = "document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 100);"></div>
+	<div class = "control undo" id = "ctrl_90"></div>
+	<div class = "control restart" id = "ctrl_82"></div>
 	<div class = "control cookie" id = "ctrl_03" onclick="Credits()"> </div>
 	<div class = "control gjlogin" id = "ctrl_01" onclick="GameJoltLogin()"> </div>
 	<div class = "control clapper" id = "ctrl_04" onclick="Clapper()"> </div>
