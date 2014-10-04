@@ -16,39 +16,39 @@
                          keyCode:keyPressed
                     },true);
 					if (keyPressed == 82)
-					{document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 125); gaPlugin.trackEvent(suc, err, "Button","Reset",curlevel.toString(),1)}
+					{document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 125)}
 					if (keyPressed == 90)
-					{document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 125); gaPlugin.trackEvent(suc, err, "Button","Undo",curlevel.toString(),1)}
+					{document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 125)}
 					if (keyPressed == 3)
-					{Credits(); gaPlugin.trackEvent(suc, err, "Button","Credits",curlevel.toString(),1)}
+					{Credits();}
 					if (keyPressed == 4)
-					{Clapper(); gaPlugin.trackEvent(suc, err, "Button","Clapper",curlevel.toString(),1)}
+					{Clapper();}
 					if (keyPressed == 5)
-					{alert('How to play \r\nYou have a grid containing squares. You control the blue block, and the light blue squares are the blocks you can push. Move by swiping up, down, left and right. Above and next to the field are series of numbers displayed. These numbers indicate groups of contiguous squares in a row or column on the grid. Between two groups is always at least one empty square, and the clues are already in the correct sequence. \r\nYou walk around with your player and push the light blue boxes to their correct locations, based on the hints given by the numbers. You can use Undo and Retry if you get stuck. If you get stuck, tap twice to check which blocks are placed correctly, and tap another time to reveal the complete solution. \r\nIf you would like a more detailed explanation of Picross, please search the internet for "Griddler Rules".'); gaPlugin.trackEvent(suc, err, "Button","Help",curlevel.toString(),1)}
+					{alert('How to play \r\nYou have a grid containing squares. You control the blue block, and the light blue squares are the blocks you can push. Move by swiping up, down, left and right. Above and next to the field are series of numbers displayed. These numbers indicate groups of contiguous squares in a row or column on the grid. Between two groups is always at least one empty square, and the clues are already in the correct sequence. \r\nYou walk around with your player and push the light blue boxes to their correct locations, based on the hints given by the numbers. You can use Undo and Retry if you get stuck. If you get stuck, tap twice to check which blocks are placed correctly, and tap another time to reveal the complete solution. \r\nIf you would like a more detailed explanation of Picross, please search the internet for "Griddler Rules".');}
 					if (keyPressed == 6)
 					{document.getElementById('gameCanvas'); var dataUrl = canvas.toDataURL(); console.log(dataUrl);
-					var shareString = '&#35;picrosspushers Level '+(curlevel.toString());
+					var shareString = 'Picross Pushers - Level '+String(curlevel);
 					window.plugins.socialsharing.share(null, shareString , dataUrl, null)}
                })
                $(".gameContainer").swipe({
 				swipe:function(event,direction,distance,duration,fingerCount) {
           			switch(direction){
 						case "left":
-							{checkKey({keyCode:37},true); gaPlugin.trackEvent(suc, err, "Move","Left",curlevel.toString(),1);}
+							checkKey({keyCode:37},true);
 							break;
 						case "right":
-							{checkKey({keyCode:39},true); gaPlugin.trackEvent(suc, err, "Move","Right",curlevel.toString(),1);}
+							checkKey({keyCode:39},true);
 							break;
 						case "up":
-							{checkKey({keyCode:38},true); gaPlugin.trackEvent(suc, err, "Move","Up",curlevel.toString(),1);}
+							checkKey({keyCode:38},true);
 							break;
 						case "down":
-							{checkKey({keyCode:40},true); gaPlugin.trackEvent(suc, err, "Move","Down",curlevel.toString(),1);}
+							checkKey({keyCode:40},true);
 							break;
 					}  
         			},
         			tap:function(event, target){
-					checkKey({keyCode:88},true); gaPlugin.trackEvent(suc, err, "Tap","Tap",curlevel.toString(),1)	
+					checkKey({keyCode:88},true);	
 				},   
 				threshold:1
       		});
@@ -60,13 +60,9 @@
         // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
 		document.addEventListener("menubutton", Clapper, false);
-		var gaPlugin;
-		var analy = -1;
-		gaPlugin = window.plugins.gaPlugin;
-		gaPlugin.init(suc, err, "UA-36092603-5", 15);
     }
-	function suc() {console.log("Whatever you did, it worked!") }
-	function err() {console.log("No success. Back to the code files!")}
+	function successHandler() {alert("Analitycs enabled.") }
+	function errorHandler() {alert("Failed to load Analytics.")}
     // Handle the back button
     function onBackKeyDown() {if (confirm("Quit Picross Pushers? (Any process made in the current level is not saved.)") == 1) {navigator.app.exitApp()};
     }
