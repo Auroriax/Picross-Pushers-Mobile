@@ -16,39 +16,39 @@
                          keyCode:keyPressed
                     },true);
 					if (keyPressed == 82)
-					{document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 125); gaPlugin.trackEvent(null, null, "Button","Reset",curlevel.toString(),1)}
+					{document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 125); gaPlugin.trackEvent(suc, err, "Button","Reset",curlevel.toString(),1)}
 					if (keyPressed == 90)
-					{document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 125); gaPlugin.trackEvent(null, null, "Button","Undo",curlevel.toString(),1)}
+					{document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 125); gaPlugin.trackEvent(suc, err, "Button","Undo",curlevel.toString(),1)}
 					if (keyPressed == 3)
-					{Credits(); gaPlugin.trackEvent(null, null, "Button","Credits",curlevel.toString(),1)}
+					{Credits(); gaPlugin.trackEvent(suc, err, "Button","Credits",curlevel.toString(),1)}
 					if (keyPressed == 4)
-					{Clapper(); gaPlugin.trackEvent(null, null, "Button","Clapper",curlevel.toString(),1)}
+					{Clapper(); gaPlugin.trackEvent(suc, err, "Button","Clapper",curlevel.toString(),1)}
 					if (keyPressed == 5)
-					{alert('How to play \r\nYou have a grid containing squares. You control the blue block, and the light blue squares are the blocks you can push. Move by swiping up, down, left and right. Above and next to the field are series of numbers displayed. These numbers indicate groups of contiguous squares in a row or column on the grid. Between two groups is always at least one empty square, and the clues are already in the correct sequence. \r\nYou walk around with your player and push the light blue boxes to their correct locations, based on the hints given by the numbers. You can use Undo and Retry if you get stuck. If you get stuck, tap twice to check which blocks are placed correctly, and tap another time to reveal the complete solution. \r\nIf you would like a more detailed explanation of Picross, please search the internet for "Griddler Rules".'); gaPlugin.trackEvent(null, null, "Button","Help",curlevel.toString(),1)}
+					{alert('How to play \r\nYou have a grid containing squares. You control the blue block, and the light blue squares are the blocks you can push. Move by swiping up, down, left and right. Above and next to the field are series of numbers displayed. These numbers indicate groups of contiguous squares in a row or column on the grid. Between two groups is always at least one empty square, and the clues are already in the correct sequence. \r\nYou walk around with your player and push the light blue boxes to their correct locations, based on the hints given by the numbers. You can use Undo and Retry if you get stuck. If you get stuck, tap twice to check which blocks are placed correctly, and tap another time to reveal the complete solution. \r\nIf you would like a more detailed explanation of Picross, please search the internet for "Griddler Rules".'); gaPlugin.trackEvent(suc, err, "Button","Help",curlevel.toString(),1)}
 					if (keyPressed == 6)
 					{document.getElementById('gameCanvas'); var dataUrl = canvas.toDataURL(); console.log(dataUrl);
-					var shareString = '#picrosspushers Level '+(curlevel.toString());
+					var shareString = '&#35;picrosspushers Level '+(curlevel.toString());
 					window.plugins.socialsharing.share(null, shareString , dataUrl, null)}
                })
                $(".gameContainer").swipe({
 				swipe:function(event,direction,distance,duration,fingerCount) {
           			switch(direction){
 						case "left":
-							checkKey({keyCode:37},true); gaPlugin.trackEvent(null, null, "Move","Left",curlevel.toString(),1);
+							{checkKey({keyCode:37},true); gaPlugin.trackEvent(suc, err, "Move","Left",curlevel.toString(),1);}
 							break;
 						case "right":
-							checkKey({keyCode:39},true); gaPlugin.trackEvent(null, null, "Move","Right",curlevel.toString(),1);
+							{checkKey({keyCode:39},true); gaPlugin.trackEvent(suc, err, "Move","Right",curlevel.toString(),1);}
 							break;
 						case "up":
-							checkKey({keyCode:38},true); gaPlugin.trackEvent(null, null, "Move","Up",curlevel.toString(),1);
+							{checkKey({keyCode:38},true); gaPlugin.trackEvent(suc, err, "Move","Up",curlevel.toString(),1);}
 							break;
 						case "down":
-							checkKey({keyCode:40},true); gaPlugin.trackEvent(null, null, "Move","Down",curlevel.toString(),1);
+							{checkKey({keyCode:40},true); gaPlugin.trackEvent(suc, err, "Move","Down",curlevel.toString(),1);}
 							break;
 					}  
         			},
         			tap:function(event, target){
-					checkKey({keyCode:88},true); gaPlugin.trackEvent(null, null, "Move","Tap",curlevel.toString(),1)	
+					checkKey({keyCode:88},true); gaPlugin.trackEvent(suc, err, "Tap","Tap",curlevel.toString(),1)	
 				},   
 				threshold:1
       		});
