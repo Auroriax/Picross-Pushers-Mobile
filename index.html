@@ -16,37 +16,39 @@
                          keyCode:keyPressed
                     },true);
 					if (keyPressed == 82)
-					{document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 125)}
+					{document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 125); gaPlugin.trackEvent(null, null, "Button","Reset",curlevel.toString(),1)}
 					if (keyPressed == 90)
-					{document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 125)}
+					{document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 125); gaPlugin.trackEvent(null, null, "Button","Undo",curlevel.toString(),1)}
 					if (keyPressed == 3)
-					{Credits();}
+					{Credits(); gaPlugin.trackEvent(null, null, "Button","Credits",curlevel.toString(),1)}
 					if (keyPressed == 4)
-					{Clapper();}
+					{Clapper(); gaPlugin.trackEvent(null, null, "Button","Clapper",curlevel.toString(),1)}
 					if (keyPressed == 5)
-					{alert('How to play \r\nYou have a grid containing squares. You control the blue block, and the light blue squares are the blocks you can push. Move by swiping up, down, left and right. Above and next to the field are series of numbers displayed. These numbers indicate groups of contiguous squares in a row or column on the grid. Between two groups is always at least one empty square, and the clues are already in the correct sequence. \r\nYou walk around with your player and push the light blue boxes to their correct locations, based on the hints given by the numbers. You can use Undo and Retry if you get stuck. If you get stuck, tap twice to check which blocks are placed correctly, and tap another time to reveal the complete solution. \r\nIf you would like a more detailed explanation of Picross, please search the internet for "Griddler Rules".');}
+					{alert('How to play \r\nYou have a grid containing squares. You control the blue block, and the light blue squares are the blocks you can push. Move by swiping up, down, left and right. Above and next to the field are series of numbers displayed. These numbers indicate groups of contiguous squares in a row or column on the grid. Between two groups is always at least one empty square, and the clues are already in the correct sequence. \r\nYou walk around with your player and push the light blue boxes to their correct locations, based on the hints given by the numbers. You can use Undo and Retry if you get stuck. If you get stuck, tap twice to check which blocks are placed correctly, and tap another time to reveal the complete solution. \r\nIf you would like a more detailed explanation of Picross, please search the internet for "Griddler Rules".'); gaPlugin.trackEvent(null, null, "Button","Help",curlevel.toString(),1)}
 					if (keyPressed == 6)
-					{document.getElementById('gameCanvas'); var dataUrl = canvas.toDataURL(); console.log(dataUrl); window.plugins.socialsharing.share(null, 'Level '+string(curlevel)+' from #picrosspushers', dataUrl, null)}
+					{document.getElementById('gameCanvas'); var dataUrl = canvas.toDataURL(); console.log(dataUrl);
+					var shareString = '#picrosspushers Level '+(curlevel.toString());
+					window.plugins.socialsharing.share(null, shareString , dataUrl, null)}
                })
                $(".gameContainer").swipe({
 				swipe:function(event,direction,distance,duration,fingerCount) {
           			switch(direction){
 						case "left":
-							checkKey({keyCode:37},true);
+							checkKey({keyCode:37},true); gaPlugin.trackEvent(null, null, "Move","Left",curlevel.toString(),1);
 							break;
 						case "right":
-							checkKey({keyCode:39},true);
+							checkKey({keyCode:39},true); gaPlugin.trackEvent(null, null, "Move","Right",curlevel.toString(),1);
 							break;
 						case "up":
-							checkKey({keyCode:38},true);
+							checkKey({keyCode:38},true); gaPlugin.trackEvent(null, null, "Move","Up",curlevel.toString(),1);
 							break;
 						case "down":
-							checkKey({keyCode:40},true);
+							checkKey({keyCode:40},true); gaPlugin.trackEvent(null, null, "Move","Down",curlevel.toString(),1);
 							break;
 					}  
         			},
         			tap:function(event, target){
-					checkKey({keyCode:88},true);	
+					checkKey({keyCode:88},true); gaPlugin.trackEvent(null, null, "Move","Tap",curlevel.toString(),1)	
 				},   
 				threshold:1
       		});
@@ -61,10 +63,10 @@
 		var gaPlugin;
 		var analy = -1;
 		gaPlugin = window.plugins.gaPlugin;
-		gaPlugin.init(successHandler, errorHandler, "UA-36092603-5", 15);
+		gaPlugin.init(suc, err, "UA-36092603-5", 15);
     }
-	function successHandler() {alert("Analitycs enabled.") }
-	function errorHandler() {alert("Failed to load Analytics.")}
+	function suc() {console.log("Whatever you did, it worked!") }
+	function err() {console.log("No success. Back to the code files!")}
     // Handle the back button
     function onBackKeyDown() {if (confirm("Quit Picross Pushers? (Any process made in the current level is not saved.)") == 1) {navigator.app.exitApp()};
     }
@@ -74,7 +76,6 @@
 	var wumbo = "f339"+"6023"+'638a7'+"caf02ea"+/*a05*/"38e05"+''+"5380f6d"
 	var temp = ""; var gjloggedin = 0;
 	var answer = ""; var clapper = 1
-	
 	</script>
 	<script> function Credits() 
 	{alert('PICROSS PUSHERS: A game made by Tom H. (Amazingcookie). http://amcookie.weebly.com \nMOBILE VERSION CREDITS: \nemanuele feronato for a tutorial of porting a Puzzlescript game to smartphones.  \nPhonegap Build for porting to smartphones. \nOPEN SOURCE LICENCES: \njQuery by the jQuery Foundation. Licenced under the MIT Licence (see below). \nTouchSwipe - jQuery Plugin: Copyright (c) 2010 Matt Bryson. Licenced under the MIT Licence (See below).\n'/*Javascript MD5: Copyright (c) 1998 - 2009, Paul Johnston & Contributors. All rights reserved. Obtained from http://pajhome.org.uk/crypt/md5/. Licenced under the BSD Licence (Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.)\n*/+'Social Sharing Phonegap plugin by Eddy Verbruggen. Licenced under the MIT Licence (Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.)'); }</script>
