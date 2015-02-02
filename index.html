@@ -17,7 +17,7 @@
                     },true);
 					if (keyPressed == 82)
 					{document.getElementById('ctrl_82').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_82').style.backgroundPosition = '0 0px'}, 125)}
-					if (keyPressed == 90 && backups.length != 0)
+					if (keyPressed == 90)
 					{document.getElementById('ctrl_90').style.backgroundPosition = '0 40px'; setTimeout(function(){document.getElementById('ctrl_90').style.backgroundPosition = '0 0px'}, 125)}
 					if (keyPressed == 3)
 					{Credits();}
@@ -70,16 +70,16 @@
     // Handle the back button
     function onBackKeyDown() {
 	if (backups.length != 0)
-	{doUndo()}
+	{checkKey({keyCode:90},true);}
 	else
 	{
-	 if (titleScreen = true)
+	 if (titleScreen == true)
 	  {
-	  if (confirm("Quit Picross Pushers? (Any process made in the current level is not saved.)") == 1) 
-	  {navigator.app.exitApp()};
+	   if (confirm("Quit Picross Pushers? (Any process made in the current level is not saved.)") == 1) 
+	   {navigator.app.exitApp()};
 	  }
 	 else
-	 checkKey({keyCode:27},true)
+	 {checkKey({keyCode:27},true)}
 	}
     }
 	</script>
