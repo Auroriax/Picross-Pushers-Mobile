@@ -69,18 +69,8 @@
 	function errorHandler() {alert("Failed to load Analytics.")}
     // Handle the back button
     function onBackKeyDown() {
-	if (backups.length != 0)
-	{checkKey({keyCode:90},true);}
-	else
-	{
-	 if (titleScreen == true)
-	  {
-	   if (confirm("Quit Picross Pushers? (Any process made in the current level is not saved.)") == 1) 
-	   {navigator.app.exitApp()};
-	  }
-	 else
-	 {checkKey({keyCode:27},true)}
-	}
+	if (confirm("Quit Picross Pushers? (Any progress made in the current level is not saved") == true)
+	{navigator.app.exitApp();}
     }
 	</script>
 </head> <body onload="onLoad()"> 
