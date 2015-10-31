@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:android   = "http://schemas.android.com/apk/res/android" id="com.amazingcookie.picrosspushers" version="1">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:android   = "http://schemas.android.com/apk/res/android" id="com.amazingcookie.picrosspushers" version="1.0.0">
 	<name>Picross Pushers</name>
 	<description>Picross Pushers is a puzzle game that combines the loved number-logic gameplay of Picross (also known as Nonogram or Griddler) with the ever-popular box pushing game Sokoban.</description>
 	<author href="http://www.amcookie.weebly.com">Tom H. (Amazingcookie)</author>
